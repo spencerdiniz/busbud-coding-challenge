@@ -19,6 +19,9 @@ class SuggestionsListViewController: UITableViewController {
         super.viewDidLoad()
 
         title = "Suggestions"
+        navigationItem.backButtonTitle = ""
+
+        setupUI()
 
         Task {
             do {
@@ -32,7 +35,7 @@ class SuggestionsListViewController: UITableViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         tableView.separatorInset = .zero
     }
 
@@ -53,11 +56,17 @@ class SuggestionsListViewController: UITableViewController {
         let suggestion = suggestions[indexPath.row]
 
         cell.textLabel?.text = suggestion.cityName
-        cell.detailTextLabel?.text = "\(suggestion.formattedDistanceInKm) / \(suggestion.formattedDistanceInMiles)"
+        cell.detailTextLabel?.text = suggestion.formattedDistance
         cell.accessoryType = .disclosureIndicator
         cell.separatorInset = .zero
         cell.selectionStyle = .none
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let suggestion = suggestions[indexPath.row]
+        let suggestionDetailViewController = SuggestionDetailViewController(suggestion: suggestion)
+        navigationController?.pushViewController(suggestionDetailViewController, animated: true)
     }
 }

@@ -65,13 +65,23 @@ struct Suggestion: Codable {
     }
 
     var formattedDistanceInKm: String {
-        guard let distance = distance else { return "" }
+        guard let distance = distance else {
+            return ""
+        }
+
         return String(format: "%.2f km", distance / 1000)
     }
 
     var formattedDistanceInMiles: String {
-        guard let distance = distance else { return "" }
+        guard let distance = distance else {
+            return ""
+        }
+
         return String(format: "%.2f mi", distance / 1609.34)
+    }
+
+    var formattedDistance: String {
+        return "\(formattedDistanceInKm) / \(formattedDistanceInMiles)"
     }
 }
 

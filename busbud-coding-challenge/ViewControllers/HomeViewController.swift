@@ -42,10 +42,10 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("UIKit", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.lightText, for: .normal)
         button.backgroundColor = .systemBlue
         button.clipsToBounds = true
-        button.layer.cornerRadius = 22.0
+        button.layer.cornerRadius = 4.0
         button.layer.masksToBounds = true
 
         return button
@@ -55,10 +55,10 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("SwiftUI", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.lightText, for: .normal)
         button.backgroundColor = .systemBlue
         button.clipsToBounds = true
-        button.layer.cornerRadius = 22.0
+        button.layer.cornerRadius = 4.0
         button.layer.masksToBounds = true
 
         return button
@@ -68,13 +68,20 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Home"
+        navigationItem.backButtonTitle = ""
+
         setupUI()
     }
 
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
 
         view.addSubview(stackViewMain)
+
+        stackViewMain.addArrangedSubview(labelTitle)
+        stackViewMain.addArrangedSubview(stackViewButtons)
+        stackViewButtons.addArrangedSubview(buttonUIKit)
+        stackViewButtons.addArrangedSubview(buttonSwiftUI)
 
         NSLayoutConstraint.activate([
             stackViewMain.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -84,11 +91,6 @@ class HomeViewController: UIViewController {
             buttonSwiftUI.heightAnchor.constraint(equalToConstant: 44),
             buttonSwiftUI.widthAnchor.constraint(equalToConstant: 120),
         ])
-
-        stackViewMain.addArrangedSubview(labelTitle)
-        stackViewMain.addArrangedSubview(stackViewButtons)
-        stackViewButtons.addArrangedSubview(buttonUIKit)
-        stackViewButtons.addArrangedSubview(buttonSwiftUI)
 
         buttonUIKit.addTarget(self, action: #selector(startUIKitDemo), for: .touchUpInside)
         buttonSwiftUI.addTarget(self, action: #selector(startSwiftUIDemo), for: .touchUpInside)
