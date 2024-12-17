@@ -9,10 +9,16 @@ import UIKit
 import CoreLocation
 
 class SuggestionsListViewController: UITableViewController {
-    private var suggestions: [Suggestion] = [] {
-        didSet {
-            tableView.reloadData()
-        }
+    private let viewModel: SuggestionsListViewModel
+
+    init(viewModel: SuggestionsListViewModel) {
+        self.viewModel = viewModel
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -27,7 +33,11 @@ class SuggestionsListViewController: UITableViewController {
             do {
                 let locationService = LocationService()
                 let coordinate = try await locationService.requestLocation()
-                await loadData(for: coordinate)
+                await viewModel.loadData(for: coordinate)
+
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
             } catch {
                 print("Failed to get location: \(error.localizedDescription)")
             }
@@ -39,21 +49,13 @@ class SuggestionsListViewController: UITableViewController {
         tableView.separatorInset = .zero
     }
 
-    private func loadData(for coordinate: CLLocationCoordinate2D) async {
-        let suggestions = try? await BusbudService.shared.fetchSuggestions(for: coordinate)
-
-        DispatchQueue.main.async {
-            self.suggestions = suggestions ?? []
-        }
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return suggestions.count
+        return viewModel.suggestions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        let suggestion = suggestions[indexPath.row]
+        let suggestion = viewModel.suggestions[indexPath.row]
 
         cell.textLabel?.text = suggestion.cityName
         cell.detailTextLabel?.text = suggestion.formattedDistance
@@ -65,8 +67,10 @@ class SuggestionsListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let suggestion = suggestions[indexPath.row]
-        let suggestionDetailViewController = SuggestionDetailViewController(suggestion: suggestion)
+        let suggestion = viewModel.suggestions[indexPath.row]
+        let suggestionDetailViewModel = SuggestionDetailViewModel(suggestion: suggestion)
+        let suggestionDetailViewController = SuggestionDetailViewController(viewModel: suggestionDetailViewModel)
+
         navigationController?.pushViewController(suggestionDetailViewController, animated: true)
     }
 }

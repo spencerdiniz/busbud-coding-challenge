@@ -42,8 +42,8 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("UIKit", for: .normal)
-        button.setTitleColor(.lightText, for: .normal)
-        button.backgroundColor = .systemBlue
+        button.setTitleColor(.darkText, for: .normal)
+        button.backgroundColor = .systemOrange
         button.clipsToBounds = true
         button.layer.cornerRadius = 4.0
         button.layer.masksToBounds = true
@@ -55,8 +55,8 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("SwiftUI", for: .normal)
-        button.setTitleColor(.lightText, for: .normal)
-        button.backgroundColor = .systemBlue
+        button.setTitleColor(.darkText, for: .normal)
+        button.backgroundColor = .systemOrange
         button.clipsToBounds = true
         button.layer.cornerRadius = 4.0
         button.layer.masksToBounds = true
@@ -97,7 +97,9 @@ class HomeViewController: UIViewController {
     }
 
     @objc private func startUIKitDemo() {
-        let suggestionsViewController = SuggestionsListViewController()
+        let suggestionsViewModel = SuggestionsListViewModel()
+        let suggestionsViewController = SuggestionsListViewController(viewModel: suggestionsViewModel)
+
         navigationController?.pushViewController(suggestionsViewController, animated: true)
     }
 

@@ -121,8 +121,8 @@ class SuggestionDetailViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Go to Busbud Website", for: .normal)
-        button.setTitleColor(.lightText, for: .normal)
-        button.backgroundColor = .systemBlue
+        button.setTitleColor(.darkText, for: .normal)
+        button.backgroundColor = .systemOrange
         button.clipsToBounds = true
         button.layer.cornerRadius = 4.0
         button.layer.masksToBounds = true
@@ -130,10 +130,10 @@ class SuggestionDetailViewController: UIViewController {
         return button
     }()
 
-    let suggestion: Suggestion
+    let viewModel: SuggestionDetailViewModel
 
-    init(suggestion: Suggestion) {
-        self.suggestion = suggestion
+    init(viewModel: SuggestionDetailViewModel) {
+        self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -193,32 +193,31 @@ class SuggestionDetailViewController: UIViewController {
     }
 
     private func loadInfo() {
-        labelCityValue.text = suggestion.cityName
-        labelRegionValue.text = suggestion.regionName
-        labelCountryValue.text = suggestion.countryName
-        labelDistanceValue.text = suggestion.formattedDistance
+        labelCityValue.text = viewModel.city
+        labelRegionValue.text = viewModel.region
+        labelCountryValue.text = viewModel.country
+        labelDistanceValue.text = viewModel.distance
+
         centerMapOnLocation()
     }
 
     private func centerMapOnLocation() {
-        let coordinate = CLLocationCoordinate2D(latitude: suggestion.lat, longitude: suggestion.lon)
-
         let region = MKCoordinateRegion(
-            center: coordinate,
+            center: viewModel.coordinate,
             latitudinalMeters: 10000,
             longitudinalMeters: 10000
         )
 
         let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        annotation.title = suggestion.cityName
+        annotation.coordinate = viewModel.coordinate
+        annotation.title = viewModel.city
 
         mapView.addAnnotation(annotation)
         mapView.setRegion(region, animated: true)
     }
 
     @objc private func goToWebsite() {
-        guard let url = URL(string: "https://www.busbud.com/en/c/\(suggestion.geohash)") else {
+        guard let url = URL(string: "https://www.busbud.com/en/c/\(viewModel.geohash)") else {
             return
         }
 
