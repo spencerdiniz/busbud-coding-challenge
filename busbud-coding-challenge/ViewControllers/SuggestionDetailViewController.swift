@@ -106,6 +106,8 @@ class SuggestionDetailViewController: UIViewController {
     let mapView: MKMapView = {
         let mapView = MKMapView()
         mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.isScrollEnabled = false
+        mapView.isZoomEnabled = false
         mapView.clipsToBounds = true
         mapView.layer.cornerRadius = 4
         mapView.layer.masksToBounds = true
