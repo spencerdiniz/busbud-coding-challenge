@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct SuggestionsResponse: Codable {
     let suggestions: [Suggestion]
@@ -38,6 +39,7 @@ struct Suggestion: Codable {
     let fullName: String
     let shortName: String
     let requestID: String
+    var distance: Double?
 
     enum CodingKeys: String, CodingKey {
         case provider
@@ -60,6 +62,16 @@ struct Suggestion: Codable {
         case fullName = "full_name"
         case shortName = "short_name"
         case requestID = "request_id"
+    }
+
+    var formattedDistanceInKm: String {
+        guard let distance = distance else { return "" }
+        return String(format: "%.2f km", distance / 1000)
+    }
+
+    var formattedDistanceInMiles: String {
+        guard let distance = distance else { return "" }
+        return String(format: "%.2f mi", distance / 1609.34)
     }
 }
 

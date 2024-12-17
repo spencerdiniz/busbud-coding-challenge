@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import CoreLocation
 
 public class BusbudService {
     public static let shared = BusbudService()
 
-    func fetchSuggestions() async throws -> [Suggestion] {
-        let url = URL(string: "https://napi.busbud.com/flex/suggestions/points-of-interest")!
+    func fetchSuggestions(for coordinate: CLLocationCoordinate2D) async throws -> [Suggestion] {
+        let url = URL(string: "https://napi.busbud.com/flex/suggestions/points-of-interest?lang=en&limit=100&lat=\(coordinate.latitude)&lon=\(coordinate.longitude)")!
         var request = URLRequest(url: url)
         request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         request.httpMethod = "GET"
@@ -27,7 +28,17 @@ public class BusbudService {
 
             let decoder = JSONDecoder()
             let suggestionResponse = try decoder.decode(SuggestionsResponse.self, from: data)
-            return suggestionResponse.suggestions
+            var suggestionsWithDistance: [Suggestion] = []
+
+            for var suggestion in suggestionResponse.suggestions {
+                let suggestionLocation = CLLocation(latitude: suggestion.lat, longitude: suggestion.lon)
+                let distance = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude).distance(from: suggestionLocation)
+                suggestion.distance = distance
+                suggestionsWithDistance.append(suggestion)
+            }
+
+            let sortedSuggestions = suggestionsWithDistance.sorted { $0.distance ?? 0 < $1.distance ?? 0 }
+            return sortedSuggestions
         } catch {
             print("Failed to fetch suggestions: \(error)")
             throw error
