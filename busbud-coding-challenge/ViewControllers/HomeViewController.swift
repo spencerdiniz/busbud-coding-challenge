@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
     private var labelTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = String(localized: "Choose implmentation:")
+        label.text = String(localized: "Choose the experience:")
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 20)
 

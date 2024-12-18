@@ -1,13 +1,13 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Choose implmentation:" : {
+    "Choose the experience:" : {
       "extractionState" : "manual",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escolha a implementação:"
+            "value" : "Escolha a experiência:"
           }
         }
       }
