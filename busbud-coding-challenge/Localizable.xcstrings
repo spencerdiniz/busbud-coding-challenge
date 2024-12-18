@@ -122,7 +122,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "SwiftUI-BR"
+            "value" : "SwiftUI"
           }
         }
       }
@@ -133,7 +133,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "UIKit-BR"
+            "value" : "UIKit"
           }
         }
       }
