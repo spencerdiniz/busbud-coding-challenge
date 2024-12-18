@@ -146,7 +146,6 @@ class SuggestionDetailViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Details"
-        navigationItem.backButtonTitle = ""
 
         setupUI()
         loadInfo()

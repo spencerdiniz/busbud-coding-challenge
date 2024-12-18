@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-class SuggestionDetailViewModel {
+class SuggestionDetailViewModel: ObservableObject {
     private let suggestion: Suggestion
 
     init(suggestion: Suggestion) {

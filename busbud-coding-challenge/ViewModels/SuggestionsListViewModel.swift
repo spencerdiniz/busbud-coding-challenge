@@ -9,8 +9,8 @@ import Foundation
 import CoreLocation
 
 @MainActor
-class SuggestionsListViewModel {
-    var suggestions: [Suggestion] = []
+class SuggestionsListViewModel: ObservableObject {
+    @Published var suggestions: [Suggestion] = []
 
     func loadData(for coordinate: CLLocationCoordinate2D) async {
         let fetchedSuggestions = try? await BusbudService.shared.fetchSuggestions(for: coordinate)

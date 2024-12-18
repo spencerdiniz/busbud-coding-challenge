@@ -24,8 +24,9 @@ class SuggestionsListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Suggestions"
+        title = "Suggestions (UIKit)"
         navigationItem.backButtonTitle = ""
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Dismiss", style: .plain, target: self, action: #selector(dismissViewController))
 
         setupUI()
 
@@ -47,6 +48,10 @@ class SuggestionsListViewController: UITableViewController {
     private func setupUI() {
         view.backgroundColor = .systemBackground
         tableView.separatorInset = .zero
+    }
+
+    @objc private func dismissViewController() {
+        dismiss(animated: true)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

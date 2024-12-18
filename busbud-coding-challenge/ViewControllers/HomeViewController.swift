@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class HomeViewController: UIViewController {
     private var stackViewMain: UIStackView = {
@@ -68,7 +69,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Home"
-        navigationItem.backButtonTitle = ""
 
         setupUI()
     }
@@ -99,11 +99,19 @@ class HomeViewController: UIViewController {
     @objc private func startUIKitDemo() {
         let suggestionsViewModel = SuggestionsListViewModel()
         let suggestionsViewController = SuggestionsListViewController(viewModel: suggestionsViewModel)
+        let navigationViewController = UINavigationController(rootViewController: suggestionsViewController)
+        navigationViewController.modalPresentationStyle = .fullScreen
 
-        navigationController?.pushViewController(suggestionsViewController, animated: true)
+        present(navigationViewController, animated: true)
     }
 
     @objc private func startSwiftUIDemo() {
-        print("SwiftUI Demo")
+        let suggestionsViewModel = SuggestionsListViewModel()
+        let suggestionsView = SuggestionsListView(viewModel: suggestionsViewModel)
+
+        let hostingController = UIHostingController(rootView: suggestionsView)
+        hostingController.modalPresentationStyle = .fullScreen
+
+        present(hostingController, animated: true)
     }
 }
