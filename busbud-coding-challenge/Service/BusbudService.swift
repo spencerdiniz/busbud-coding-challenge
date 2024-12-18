@@ -11,8 +11,16 @@ import CoreLocation
 public class BusbudService {
     public static let shared = BusbudService()
 
+    private let supportedLanguages: [String: String] = [
+        "en": "en",
+        "pt": "pt"
+    ]
+
     func fetchSuggestions(for coordinate: CLLocationCoordinate2D) async throws -> [Suggestion] {
-        let url = URL(string: "https://napi.busbud.com/flex/suggestions/points-of-interest?lang=en&limit=100&lat=\(coordinate.latitude)&lon=\(coordinate.longitude)")!
+        let deviceLanguage = Locale.current.language.languageCode?.identifier ?? "en"
+        let currantLanguage = supportedLanguages[deviceLanguage] ?? "en"
+
+        let url = URL(string: "https://napi.busbud.com/flex/suggestions/points-of-interest?lang=\(currantLanguage)&limit=100&lat=\(coordinate.latitude)&lon=\(coordinate.longitude)")!
         var request = URLRequest(url: url)
         request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         request.httpMethod = "GET"

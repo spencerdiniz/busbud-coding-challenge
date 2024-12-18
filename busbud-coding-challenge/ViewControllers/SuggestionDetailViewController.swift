@@ -31,7 +31,7 @@ class SuggestionDetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16)
-        label.text = "City"
+        label.text = String(localized: "City")
         label.textColor = .secondaryLabel
 
         return label
@@ -50,7 +50,7 @@ class SuggestionDetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16)
-        label.text = "State / Province / Region"
+        label.text = String(localized: "State / Province / Region")
         label.textColor = .secondaryLabel
 
         return label
@@ -69,7 +69,7 @@ class SuggestionDetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16)
-        label.text = "Country"
+        label.text = String(localized: "Country")
         label.textColor = .secondaryLabel
 
         return label
@@ -88,7 +88,7 @@ class SuggestionDetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 16)
-        label.text = "Distance"
+        label.text = String(localized: "Distance")
         label.textColor = .secondaryLabel
 
         return label
@@ -120,7 +120,7 @@ class SuggestionDetailViewController: UIViewController {
     let buttonGoToWebsite: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Go to Busbud Website", for: .normal)
+        button.setTitle(String(localized: "Go to Busbud Website"), for: .normal)
         button.setTitleColor(.darkText, for: .normal)
         button.backgroundColor = .systemOrange
         button.clipsToBounds = true
@@ -145,7 +145,7 @@ class SuggestionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Details"
+        title = String(localized: "Details")
 
         setupUI()
         loadInfo()

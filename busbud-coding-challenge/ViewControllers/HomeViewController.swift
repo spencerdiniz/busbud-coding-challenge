@@ -32,7 +32,7 @@ class HomeViewController: UIViewController {
     private var labelTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Choose implmentation:"
+        label.text = String(localized: "Choose implmentation:")
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 20)
 
@@ -42,7 +42,7 @@ class HomeViewController: UIViewController {
     private var buttonUIKit: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("UIKit", for: .normal)
+        button.setTitle(String(localized: "UIKit"), for: .normal)
         button.setTitleColor(.darkText, for: .normal)
         button.backgroundColor = .systemOrange
         button.clipsToBounds = true
@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
     private var buttonSwiftUI: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("SwiftUI", for: .normal)
+        button.setTitle(String(localized: "SwiftUI"), for: .normal)
         button.setTitleColor(.darkText, for: .normal)
         button.backgroundColor = .systemOrange
         button.clipsToBounds = true
