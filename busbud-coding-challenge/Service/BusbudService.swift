@@ -8,7 +8,11 @@
 import Foundation
 import CoreLocation
 
-public class BusbudService {
+protocol BusbudServiceProtocol {
+    func fetchSuggestions(for coordinate: CLLocationCoordinate2D) async throws -> [Suggestion]
+}
+
+public class BusbudService: BusbudServiceProtocol {
     public static let shared = BusbudService()
 
     private let supportedLanguages: [String: String] = [

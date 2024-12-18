@@ -11,9 +11,14 @@ import CoreLocation
 @MainActor
 class SuggestionsListViewModel: ObservableObject {
     @Published var suggestions: [Suggestion] = []
+    private let service: BusbudServiceProtocol
+
+    init(service: BusbudServiceProtocol = BusbudService.shared) {
+        self.service = service
+    }
 
     func loadData(for coordinate: CLLocationCoordinate2D) async {
-        let fetchedSuggestions = try? await BusbudService.shared.fetchSuggestions(for: coordinate)
+        let fetchedSuggestions = try? await service.fetchSuggestions(for: coordinate)
         suggestions = fetchedSuggestions ?? []
     }
 }

@@ -14,19 +14,12 @@
 			remoteGlobalIDString = 14BBD44B2D11E6240047FE7A;
 			remoteInfo = "busbud-coding-challenge";
 		};
-		14BBD46D2D11E6250047FE7A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 14BBD4442D11E6240047FE7A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 14BBD44B2D11E6240047FE7A;
-			remoteInfo = "busbud-coding-challenge";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		14BBD44C2D11E6240047FE7A /* busbud-coding-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "busbud-coding-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14BBD4622D11E6250047FE7A /* busbud-coding-challengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "busbud-coding-challengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		14BBD46C2D11E6250047FE7A /* busbud-coding-challengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "busbud-coding-challengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14BBD4F72D12796F0047FE7A /* busbud-coding-challenge.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "busbud-coding-challenge.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -53,11 +46,6 @@
 			path = "busbud-coding-challengeTests";
 			sourceTree = "<group>";
 		};
-		14BBD46F2D11E6250047FE7A /* busbud-coding-challengeUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "busbud-coding-challengeUITests";
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,22 +63,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		14BBD4692D11E6250047FE7A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		14BBD4432D11E6240047FE7A = {
 			isa = PBXGroup;
 			children = (
+				14BBD4F72D12796F0047FE7A /* busbud-coding-challenge.xctestplan */,
 				14BBD44E2D11E6240047FE7A /* busbud-coding-challenge */,
 				14BBD4652D11E6250047FE7A /* busbud-coding-challengeTests */,
-				14BBD46F2D11E6250047FE7A /* busbud-coding-challengeUITests */,
 				14BBD44D2D11E6240047FE7A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +81,6 @@
 			children = (
 				14BBD44C2D11E6240047FE7A /* busbud-coding-challenge.app */,
 				14BBD4622D11E6250047FE7A /* busbud-coding-challengeTests.xctest */,
-				14BBD46C2D11E6250047FE7A /* busbud-coding-challengeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,29 +133,6 @@
 			productReference = 14BBD4622D11E6250047FE7A /* busbud-coding-challengeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		14BBD46B2D11E6250047FE7A /* busbud-coding-challengeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 14BBD47D2D11E6250047FE7A /* Build configuration list for PBXNativeTarget "busbud-coding-challengeUITests" */;
-			buildPhases = (
-				14BBD4682D11E6250047FE7A /* Sources */,
-				14BBD4692D11E6250047FE7A /* Frameworks */,
-				14BBD46A2D11E6250047FE7A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				14BBD46E2D11E6250047FE7A /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				14BBD46F2D11E6250047FE7A /* busbud-coding-challengeUITests */,
-			);
-			name = "busbud-coding-challengeUITests";
-			packageProductDependencies = (
-			);
-			productName = "busbud-coding-challengeUITests";
-			productReference = 14BBD46C2D11E6250047FE7A /* busbud-coding-challengeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -190,10 +147,6 @@
 						CreatedOnToolsVersion = 16.2;
 					};
 					14BBD4612D11E6250047FE7A = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 14BBD44B2D11E6240047FE7A;
-					};
-					14BBD46B2D11E6250047FE7A = {
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = 14BBD44B2D11E6240047FE7A;
 					};
@@ -216,7 +169,6 @@
 			targets = (
 				14BBD44B2D11E6240047FE7A /* busbud-coding-challenge */,
 				14BBD4612D11E6250047FE7A /* busbud-coding-challengeTests */,
-				14BBD46B2D11E6250047FE7A /* busbud-coding-challengeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -230,13 +182,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		14BBD4602D11E6250047FE7A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		14BBD46A2D11E6250047FE7A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -260,13 +205,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		14BBD4682D11E6250047FE7A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -274,11 +212,6 @@
 			isa = PBXTargetDependency;
 			target = 14BBD44B2D11E6240047FE7A /* busbud-coding-challenge */;
 			targetProxy = 14BBD4632D11E6250047FE7A /* PBXContainerItemProxy */;
-		};
-		14BBD46E2D11E6250047FE7A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 14BBD44B2D11E6240047FE7A /* busbud-coding-challenge */;
-			targetProxy = 14BBD46D2D11E6250047FE7A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -504,38 +437,6 @@
 			};
 			name = Release;
 		};
-		14BBD47E2D11E6250047FE7A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "spencer.busbud-coding-challengeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "busbud-coding-challenge";
-			};
-			name = Debug;
-		};
-		14BBD47F2D11E6250047FE7A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "spencer.busbud-coding-challengeUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "busbud-coding-challenge";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -562,15 +463,6 @@
 			buildConfigurations = (
 				14BBD47B2D11E6250047FE7A /* Debug */,
 				14BBD47C2D11E6250047FE7A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		14BBD47D2D11E6250047FE7A /* Build configuration list for PBXNativeTarget "busbud-coding-challengeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				14BBD47E2D11E6250047FE7A /* Debug */,
-				14BBD47F2D11E6250047FE7A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
